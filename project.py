@@ -51,5 +51,29 @@ final_dataset = np.concatenate((X,Z), axis=1)
 final_dataset = pd.DataFrame(final_dataset)
 
 
+"""
+# 3D graph (Multiple Regression)
+fig = plt.figure()
+ax = fig.add_subplot(111,projection="3d")
+ax.scatter(dataset_merged['distance'], dataset_merged['steps'], dataset_merged['calories'], c='blue', marker = 'o', s = 10)
+ax.view_init(30, 185)
+plt.xlabel('Distance')
+plt.ylabel('Steps')
+plt.zlabel('Calories')
+plt.show()
+"""
+
+
+"""
+# 3D graph (Multiple Regression)
+fig = plt.figure()
+ax = fig.add_subplot(111,projection="3d")
+ax.scatter(fitbit_dataset['Distance'], fitbit_dataset['Steps'], fitbit_dataset['Calories'], c='blue', marker = 'o', s = 10)
+ax.view_init(30, 185)
+plt.xlabel('Distance')
+plt.ylabel('Steps')
+plt.zlabel('Calories')
+plt.show()
+"""
 
 
