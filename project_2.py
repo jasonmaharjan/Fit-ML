@@ -162,7 +162,7 @@ prediction = regressor_OLS.predict(4486)
 # Distance VS Calories 
 plt.scatter(X[:,2], Y, color = 'red')
 plt.plot(X[:,2], regressor_OLS.predict(X[:,2]), color = 'blue')
-plt.title('Fitness Analysis')
+plt.title('Fitness Analysis of Mi Smart Band 4')
 plt.xlabel('Distance')
 plt.ylabel('Calories')
 plt.show()
@@ -171,7 +171,7 @@ plt.show()
 regressor_OLS = sm.OLS(endog = Y, exog = X[:,[1]]).fit()
 plt.scatter(X[:,1], Y, color = 'red')
 plt.plot(X[:,1], regressor_OLS.predict(X[:,1]), color = 'blue')
-plt.title('Fitness Analysis')
+plt.title('Fitness Analysis of Mi Smart Band 4')
 plt.xlabel('Steps')
 plt.ylabel('Calories')
 plt.show()
@@ -182,7 +182,7 @@ plt.show()
 # Distance VS Calories
 plt.scatter(Xf[:,1], Yf, color = 'red')
 plt.plot(Xf[:,1], regressor_OLS_f.predict(Xf[:,1]), color = 'blue')
-plt.title('Distance VS Calories')
+plt.title('Fitness Analysis of Fitbit Charge 4')
 plt.xlabel('Distance')
 plt.ylabel('Calories')
 plt.show()
@@ -191,7 +191,7 @@ plt.show()
 regressor_OLS_f = sm.OLS(endog = Yf, exog = Xf[:,2]).fit()
 plt.scatter(Xf[:,2], Yf, color = 'red')
 plt.plot(Xf[:,2], regressor_OLS_f.predict(Xf[:,2]), color = 'blue')
-plt.title('Steps VS Calories')
+plt.title('Fitness Analysis of Fitbit Charge 4')
 plt.xlabel('Steps')
 plt.ylabel('Calories')
 plt.show()
@@ -206,6 +206,10 @@ difference_in_steps = np.array(difference_in_steps)
 
 difference_in_distance = ((final_dataset['distance_x'] - final_dataset['distance_y']) / final_dataset['distance_x'])*100
 difference_in_distance = np.array(difference_in_distance)
+
+difference_in_calories = ((final_dataset['calories_x'] - final_dataset['calories_y']) / final_dataset['calories_x'])*100
+
+
 
 # for nan values for heartbeat for MI
 hb_nan = final_dataset.iloc[:,5].values
@@ -257,7 +261,8 @@ plt.figure(figsize=(15,7))
 
 plt.plot(final_dataset.iloc[:,0].values, difference_in_steps, linewidth= 3, label = 'Steps difference', color = 'b')
 plt.plot(final_dataset.iloc[:,0].values, difference_in_distance , '--',linewidth = 2, label = 'Distance difference', color = 'g')
-plt.plot(final_dataset.iloc[:,0].values, difference_in_hb,':', linewidth= 3, label = 'Heartbeat difference', color = 'r')
+plt.plot(final_dataset.iloc[:,0].values, difference_in_calories , '--',linewidth = 2, label = 'Calories difference', color = 'r')
+#plt.plot(final_dataset.iloc[:,0].values, difference_in_hb,':', linewidth= 3, label = 'Heartbeat difference', color = 'r')
 
 plt.title('Comparative Analysis for MI vs Fitbit Charge 2')
 plt.xlabel('Date')
